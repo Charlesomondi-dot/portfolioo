@@ -9,8 +9,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 // Toggle mobile menu
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        const isOpen = navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
     });
 
     // Close menu when a link is clicked
@@ -18,6 +19,7 @@ if (hamburger && navMenu) {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -26,6 +28,7 @@ if (hamburger && navMenu) {
         if (window.innerWidth > 768) {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         }
     });
 }
@@ -65,10 +68,14 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe all project cards, skill categories, and contact cards
-document.querySelectorAll('.project-card, .skill-category, .contact-card, .about-content, .service-card, .achievement-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+const revealElements = document.querySelectorAll('.project-card, .skill-category, .contact-card, .about-content, .service-card, .achievement-card');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+revealElements.forEach(el => {
+    if (!prefersReducedMotion) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
     observer.observe(el);
 });
 
@@ -106,7 +113,7 @@ const statsObserver = new IntersectionObserver((entries) => {
             const counters = entry.target.querySelectorAll('.stat-number');
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'), 10);
-                const suffix = counter.textContent.trim().replace(/[\d.,\s]/g, '');
+                const suffix = counter.getAttribute('data-suffix') || '';
                 animateCounter(counter, target, suffix);
             });
             statsObserver.unobserve(entry.target);
@@ -252,11 +259,49 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+function openOfficeViewer(path, title) {
+    const modal = document.getElementById('officeModal');
+    const viewer = document.getElementById('officeViewer');
+    const titleElement = document.getElementById('officeViewerTitle');
+    const downloadLink = document.getElementById('officeDownloadLink');
+    const localFallback = document.getElementById('officeLocalFallback');
+    const localDownloadLink = document.getElementById('officeLocalDownloadLink');
+    const documentUrl = new URL(path, window.location.href).href;
+    const viewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(documentUrl)}`;
+
+    titleElement.textContent = title;
+    downloadLink.href = path;
+    localDownloadLink.href = path;
+    const isLocal = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+    viewer.hidden = isLocal;
+    localFallback.hidden = !isLocal;
+    viewer.src = isLocal ? 'about:blank' : viewerUrl;
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeOfficeViewer() {
+    const modal = document.getElementById('officeModal');
+    const viewer = document.getElementById('officeViewer');
+    const localFallback = document.getElementById('officeLocalFallback');
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    viewer.src = 'about:blank';
+    viewer.hidden = false;
+    localFallback.hidden = true;
+    document.body.style.overflow = 'auto';
+}
+
 // Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('pdfModal');
     if (event.target === modal) {
         closeModal();
+    }
+    const officeModal = document.getElementById('officeModal');
+    if (event.target === officeModal) {
+        closeOfficeViewer();
     }
 }
 
@@ -264,6 +309,7 @@ window.onclick = function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeModal();
+        closeOfficeViewer();
     }
 });
 

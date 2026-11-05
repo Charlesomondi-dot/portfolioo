@@ -342,6 +342,25 @@ body {
     flex-wrap: wrap;
 }
 
+.document-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+}
+
+.document-download {
+    padding-left: 4px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.78rem;
+    text-decoration: none;
+}
+
+.document-download:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 .company-section .btn-outline {
     color: white;
     border-color: #b7efd0;
@@ -1443,6 +1462,654 @@ body {
     .services h2,
     .achievements h2 {
         font-size: 2rem;
+    }
+}
+
+/* ========================================
+   EXECUTIVE TECHNOLOGY DESIGN SYSTEM
+   ======================================== */
+
+:root {
+    --ink: #071a2b;
+    --ink-soft: #16344d;
+    --blue-900: #062b49;
+    --blue-700: #07578d;
+    --blue-500: #0b8fc4;
+    --cyan: #27c7df;
+    --gold: #f2b84b;
+    --surface: #ffffff;
+    --surface-muted: #f3f8fc;
+    --line: #d7e5ef;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+}
+
+body {
+    color: var(--ink);
+    background: var(--surface);
+}
+
+section {
+    position: relative;
+    scroll-margin-top: 82px;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(215, 229, 239, 0.8);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+}
+
+.nav-container {
+    min-height: 76px;
+}
+
+.brand-lockup img {
+    border: 2px solid rgba(11, 143, 196, 0.18);
+    box-shadow: 0 5px 16px rgba(6, 43, 73, 0.12);
+}
+
+.logo {
+    letter-spacing: -0.02em;
+}
+
+.nav-link {
+    position: relative;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+}
+
+.nav-link.active {
+    border-bottom: 0;
+}
+
+.nav-link.active::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blue-500);
+    content: "";
+}
+
+.hero {
+    min-height: calc(100vh - 76px);
+    padding: 120px 20px 100px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(39, 199, 223, 0.18), transparent 30%),
+        linear-gradient(135deg, #f8fbfd 0%, #e8f3f9 52%, #d7ebf5 100%);
+}
+
+.hero::before {
+    position: absolute;
+    top: 0;
+    right: -10%;
+    width: 52%;
+    height: 100%;
+    background-image: linear-gradient(rgba(7, 87, 141, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(7, 87, 141, 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+    content: "";
+    transform: perspective(500px) rotateY(-16deg);
+    transform-origin: right center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 720px;
+}
+
+.hero-text h1 {
+    max-width: 700px;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1.03;
+    letter-spacing: -0.06em;
+}
+
+.hero-text h1::before {
+    display: block;
+    margin-bottom: 18px;
+    color: var(--blue-500);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    content: "HARN S / TECHNOLOGY PARTNER";
+}
+
+.tagline {
+    max-width: 580px;
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    line-height: 1.4;
+}
+
+.hero-description {
+    max-width: 650px;
+    font-size: 1.05rem;
+}
+
+.hero-buttons {
+    gap: 12px;
+}
+
+.btn {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background: var(--blue-900);
+}
+
+.btn-primary:hover {
+    background: var(--blue-700);
+}
+
+.hero-image {
+    position: relative;
+    justify-self: end;
+}
+
+.hero-image::before {
+    position: absolute;
+    z-index: -1;
+    top: 22px;
+    right: -22px;
+    bottom: -22px;
+    left: 22px;
+    border: 1px solid rgba(7, 87, 141, 0.25);
+    border-radius: 26px;
+    content: "";
+}
+
+.hero-image img {
+    display: block;
+    max-width: 430px;
+    aspect-ratio: 0.88;
+    border: 10px solid rgba(255, 255, 255, 0.76);
+    border-radius: 26px;
+    box-shadow: 0 28px 70px rgba(6, 43, 73, 0.24);
+}
+
+.company-section {
+    padding: 110px 20px;
+    background: linear-gradient(145deg, var(--blue-900), var(--blue-700));
+}
+
+.company-heading {
+    text-align: left;
+    margin-left: 0;
+}
+
+.company-heading h2 {
+    max-width: 760px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.company-heading .section-subtitle {
+    max-width: 620px;
+    text-align: left;
+    margin-left: 0;
+}
+
+.company-story,
+.company-facts {
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    background: rgba(4, 25, 45, 0.24);
+}
+
+.company-pillars > div,
+.brand-showcase {
+    border-radius: var(--radius-md);
+}
+
+.brand-showcase {
+    background: rgba(3, 35, 62, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.stats {
+    padding: 34px 20px;
+    background: var(--surface);
+}
+
+.stats-grid {
+    gap: 14px;
+}
+
+.stat-card {
+    padding: 24px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: none;
+}
+
+.stat-card:hover {
+    border-color: rgba(11, 143, 196, 0.4);
+    box-shadow: 0 14px 30px rgba(6, 43, 73, 0.1);
+}
+
+.stat-card i {
+    color: var(--blue-500);
+    font-size: 1.4rem;
+}
+
+.stat-number {
+    color: var(--blue-900);
+    font-size: 2.4rem;
+}
+
+.about,
+.skills,
+.services {
+    background: var(--surface-muted);
+}
+
+.about,
+.skills,
+.projects,
+.services,
+.achievements,
+.testimonials {
+    padding: 110px 20px;
+}
+
+.about h2,
+.skills h2,
+.projects h2,
+.services h2,
+.achievements h2,
+.testimonials h2 {
+    margin-bottom: 16px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.04em;
+}
+
+.about h2::after,
+.skills h2::after,
+.projects h2::after,
+.services h2::after,
+.achievements h2::after,
+.testimonials h2::after {
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin: 16px auto 0;
+    border-radius: 4px;
+    background: var(--gold);
+    content: "";
+}
+
+.section-subtitle {
+    max-width: 620px;
+    margin: 0 auto 48px;
+}
+
+.about-content {
+    gap: 70px;
+}
+
+.about-text p {
+    font-size: 1rem;
+}
+
+.testimonial-preview,
+.skill-category,
+.project-card,
+.service-card,
+.achievement-card,
+.testimonial-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 28px rgba(6, 43, 73, 0.06);
+}
+
+.testimonial-preview {
+    padding: 38px;
+    border-top: 4px solid var(--gold);
+}
+
+.skills-grid,
+.projects-grid,
+.services-grid,
+.achievements-grid,
+.testimonials-grid {
+    gap: 22px;
+}
+
+.skill-category {
+    padding: 26px;
+    background: var(--surface);
+}
+
+.skill-category h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blue-900);
+}
+
+.skill-category h3 i,
+.service-icon,
+.achievement-icon {
+    color: var(--blue-500);
+}
+
+.skill-tag {
+    border: 1px solid rgba(11, 143, 196, 0.15);
+    background: #edf7fb;
+}
+
+.project-card {
+    position: relative;
+    background: var(--surface);
+}
+
+.project-img {
+    height: 230px;
+}
+
+.project-status {
+    top: 18px;
+    right: 18px;
+    border-radius: 7px;
+}
+
+.project-content {
+    padding: 28px;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.project-links .btn-small {
+    background: var(--blue-900);
+    color: white;
+}
+
+.project-links .btn-outline-small {
+    background: transparent;
+}
+
+.service-card {
+    padding: 30px;
+    background: var(--surface);
+}
+
+.service-card:hover,
+.achievement-card:hover,
+.testimonial-card:hover {
+    border-color: rgba(11, 143, 196, 0.42);
+    box-shadow: 0 18px 38px rgba(6, 43, 73, 0.12);
+}
+
+.service-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #e7f5fa;
+}
+
+.service-list li i {
+    color: var(--blue-500);
+}
+
+.achievements {
+    background: var(--surface);
+}
+
+.achievement-card {
+    padding: 28px;
+    background: var(--surface-muted);
+}
+
+.achievement-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #e7f5fa;
+}
+
+.achievement-year {
+    background: var(--blue-900);
+}
+
+.testimonials {
+    background: var(--surface-muted);
+}
+
+.testimonial-card {
+    padding: 30px;
+    background: var(--surface);
+}
+
+.testimonial-stars {
+    color: var(--gold);
+}
+
+.contact {
+    padding: 110px 20px;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(39, 199, 223, 0.2), transparent 30%),
+        linear-gradient(145deg, var(--blue-900), var(--blue-700));
+}
+
+.contact h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.contact-card {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+}
+
+.contact-card .btn {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.footer {
+    padding-top: 70px;
+    background: #041a2d;
+}
+
+.footer-section h3 {
+    color: var(--cyan);
+}
+
+.footer-social a,
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-highlight {
+    border-color: rgba(39, 199, 223, 0.26);
+    background: linear-gradient(135deg, rgba(7, 87, 141, 0.55), rgba(11, 143, 196, 0.18));
+}
+
+.modal-content {
+    border-radius: var(--radius-lg);
+}
+
+.office-modal-content {
+    height: 92vh;
+    max-width: 1280px;
+    padding: 28px;
+}
+
+.office-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 52px 18px 0;
+}
+
+.office-viewer-header .eyebrow {
+    margin-bottom: 4px;
+    color: var(--blue-500);
+}
+
+.office-viewer-header h2 {
+    color: var(--ink);
+    font-size: 1.35rem;
+}
+
+.office-viewer-frame {
+    min-height: 0;
+    flex: 1;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface-muted);
+}
+
+.office-viewer-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.office-local-fallback[hidden] {
+    display: none;
+}
+
+.office-local-fallback {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 32px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.office-local-fallback i {
+    margin-bottom: 18px;
+    color: var(--blue-500);
+    font-size: 3rem;
+}
+
+.office-local-fallback h3 {
+    margin-bottom: 10px;
+    color: var(--ink);
+}
+
+.office-local-fallback p {
+    max-width: 560px;
+    margin-bottom: 22px;
+}
+
+.office-viewer-note {
+    margin-top: 10px;
+    color: var(--text-light);
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 90px 20px 80px;
+    }
+
+    .hero-content {
+        gap: 70px;
+    }
+
+    .hero-image {
+        justify-self: center;
+    }
+
+    .hero-image img {
+        max-width: min(100%, 360px);
+    }
+
+    .company-heading,
+    .company-heading .section-subtitle {
+        text-align: center;
+    }
+
+    .company-heading .section-subtitle {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .about,
+    .skills,
+    .projects,
+    .services,
+    .achievements,
+    .testimonials,
+    .contact {
+        padding: 80px 20px;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .footer-highlight-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .company-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .document-action {
+        align-items: stretch;
+    }
+
+    .office-modal-content {
+        height: 88vh;
+        padding: 18px;
+    }
+
+    .office-viewer-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
