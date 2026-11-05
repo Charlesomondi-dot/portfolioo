@@ -44,7 +44,7 @@
                 <div class="hero-buttons">
                     <a href="#harns" class="btn btn-primary">Explore HarnS</a>
                     <a href="#contact" class="btn btn-secondary">Request a Consultation</a>
-                    <a href="Assets/Documents/Charles_CV.pdf" class="btn btn-outline" onclick="openCVModal(); return false;">View CV</a>
+                    <a href="Assets/Documents/Charles_CV.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View CV</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -66,14 +66,8 @@
                     <h3>Secure, automate, and scale</h3>
                     <p>HarnS bridges complex digital requirements and operational efficiency through practical enterprise software and resilient infrastructure. We design solutions around each institution's workflows, people, and growth plans.</p>
                     <div class="company-actions">
-                        <div class="document-action">
-                            <a href="Assets/HarnS/Harns Company Profile (Updated).docx" class="btn btn-primary" onclick="openOfficeViewer('Assets/HarnS/Harns Company Profile (Updated).docx', 'HarnS Company Profile'); return false;"><i class="fas fa-eye"></i> View Profile</a>
-                            <a href="Assets/HarnS/Harns Company Profile (Updated).docx" class="document-download" download>Download <i class="fas fa-download"></i></a>
-                        </div>
-                        <div class="document-action">
-                            <a href="Assets/HarnS/Harns Corporate Presentation Deck.pptx" class="btn btn-outline" onclick="openOfficeViewer('Assets/HarnS/Harns Corporate Presentation Deck.pptx', 'HarnS Presentation Deck'); return false;"><i class="fas fa-eye"></i> View Deck</a>
-                            <a href="Assets/HarnS/Harns Corporate Presentation Deck.pptx" class="document-download" download>Download <i class="fas fa-download"></i></a>
-                        </div>
+                        <a href="Assets/HarnS/Harns Company Profile (Updated).docx" class="btn btn-primary" download><i class="fas fa-file-word"></i> Download Profile</a>
+                        <a href="Assets/HarnS/Harns Corporate Presentation Deck.pptx" class="btn btn-outline" download><i class="fas fa-file-powerpoint"></i> Download Deck</a>
                     </div>
                 </div>
                 <div class="company-facts">
@@ -805,35 +799,22 @@
 
     <!-- PDF Viewer Modal -->
     <div id="pdfModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content pdf-modal-content" role="dialog" aria-modal="true" aria-labelledby="pdfViewerTitle">
+            <button class="close-modal" type="button" aria-label="Close PDF viewer" onclick="closeModal()">&times;</button>
+            <div class="pdf-viewer-header">
+                <h2 id="pdfViewerTitle">Document viewer</h2>
+                <a id="pdfDownloadLink" class="btn btn-small btn-primary" download>Download <i class="fas fa-download"></i></a>
+            </div>
             <div class="pdf-container">
-                <object id="pdfViewer" type="application/pdf" width="100%" height="100%"></object>
-            </div>
-        </div>
-    </div>
-
-    <!-- Office Document Viewer Modal -->
-    <div id="officeModal" class="modal" aria-hidden="true">
-        <div class="modal-content office-modal-content" role="dialog" aria-modal="true" aria-labelledby="officeViewerTitle">
-            <button class="close-modal" type="button" aria-label="Close document viewer" onclick="closeOfficeViewer()">&times;</button>
-            <div class="office-viewer-header">
-                <div>
-                    <span class="eyebrow">HARN S DOCUMENT</span>
-                    <h2 id="officeViewerTitle">Document preview</h2>
-                </div>
-                <a id="officeDownloadLink" class="btn btn-small btn-primary" download>Download <i class="fas fa-download"></i></a>
-            </div>
-            <div class="office-viewer-frame">
-                <iframe id="officeViewer" title="Office document preview" src="about:blank"></iframe>
-                <div id="officeLocalFallback" class="office-local-fallback" hidden>
-                    <i class="fas fa-file-powerpoint"></i>
-                    <h3>Preview available after deployment</h3>
-                    <p>Microsoft Office preview cannot access files served from localhost. Download the document to open it in PowerPoint or another compatible Office application.</p>
-                    <a id="officeLocalDownloadLink" class="btn btn-primary" download>Download document <i class="fas fa-download"></i></a>
+                <iframe id="pdfViewer" title="PDF document viewer" src="about:blank"></iframe>
+                <div id="pdfFallback" class="pdf-fallback" hidden>
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>PDF preview available after deployment</h3>
+                    <p>The online viewer cannot access files served from localhost. Download the document to open it in a PDF reader.</p>
+                    <a id="pdfFallbackDownloadLink" class="btn btn-primary" download>Download PDF <i class="fas fa-download"></i></a>
                 </div>
             </div>
-            <p class="office-viewer-note">The preview is powered by Microsoft Office for the web and requires the document to be publicly accessible.</p>
+            <p class="pdf-viewer-note">If the preview does not load, use the download button above.</p>
         </div>
     </div>
 

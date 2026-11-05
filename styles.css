@@ -1955,13 +1955,13 @@ section {
     border-radius: var(--radius-lg);
 }
 
-.office-modal-content {
+.pdf-modal-content {
     height: 92vh;
     max-width: 1280px;
     padding: 28px;
 }
 
-.office-viewer-header {
+.pdf-viewer-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1969,17 +1969,13 @@ section {
     padding: 0 52px 18px 0;
 }
 
-.office-viewer-header .eyebrow {
-    margin-bottom: 4px;
-    color: var(--blue-500);
-}
-
-.office-viewer-header h2 {
+.pdf-viewer-header h2 {
     color: var(--ink);
     font-size: 1.35rem;
 }
 
-.office-viewer-frame {
+.pdf-container {
+    position: relative;
     min-height: 0;
     flex: 1;
     overflow: hidden;
@@ -1988,17 +1984,18 @@ section {
     background: var(--surface-muted);
 }
 
-.office-viewer-frame iframe {
+.pdf-container iframe {
     width: 100%;
     height: 100%;
     border: 0;
+    background: white;
 }
 
-.office-local-fallback[hidden] {
+.pdf-fallback[hidden] {
     display: none;
 }
 
-.office-local-fallback {
+.pdf-fallback {
     height: 100%;
     display: flex;
     align-items: center;
@@ -2009,23 +2006,23 @@ section {
     text-align: center;
 }
 
-.office-local-fallback i {
+.pdf-fallback i {
     margin-bottom: 18px;
     color: var(--blue-500);
     font-size: 3rem;
 }
 
-.office-local-fallback h3 {
+.pdf-fallback h3 {
     margin-bottom: 10px;
     color: var(--ink);
 }
 
-.office-local-fallback p {
+.pdf-fallback p {
     max-width: 560px;
     margin-bottom: 22px;
 }
 
-.office-viewer-note {
+.pdf-viewer-note {
     margin-top: 10px;
     color: var(--text-light);
     font-size: 0.78rem;
@@ -2088,12 +2085,12 @@ section {
         align-items: stretch;
     }
 
-    .office-modal-content {
+    .pdf-modal-content {
         height: 88vh;
         padding: 18px;
     }
 
-    .office-viewer-header {
+    .pdf-viewer-header {
         align-items: flex-start;
         flex-direction: column;
     }

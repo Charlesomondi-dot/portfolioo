@@ -227,69 +227,44 @@ if ('IntersectionObserver' in window) {
 // PDF MODAL VIEWER
 // ========================================
 
-function openCVModal() {
+function openPdfModal(path, title) {
     const modal = document.getElementById('pdfModal');
     const viewer = document.getElementById('pdfViewer');
-    viewer.setAttribute('data', 'Assets/Documents/Charles_CV.pdf');
+    const titleElement = document.getElementById('pdfViewerTitle');
+    const downloadLink = document.getElementById('pdfDownloadLink');
+    const fallback = document.getElementById('pdfFallback');
+    const fallbackDownloadLink = document.getElementById('pdfFallbackDownloadLink');
+
+    titleElement.textContent = title;
+    downloadLink.href = path;
+    fallbackDownloadLink.href = path;
+    const isLocal = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+    fallback.hidden = !isLocal;
+    viewer.hidden = isLocal;
+    viewer.src = isLocal
+        ? 'about:blank'
+        : `https://docs.google.com/gview?embedded=1&url=${encodeURIComponent(new URL(path, window.location.href).href)}`;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+}
+
+function openCVModal() {
+    openPdfModal('Assets/Documents/Charles_CV.pdf', 'Charles Omondi CV');
 }
 
 function openCertificateModal() {
-    const modal = document.getElementById('pdfModal');
-    const viewer = document.getElementById('pdfViewer');
-    viewer.setAttribute('data', 'Assets/Documents/Introduction to AI.pdf');
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    openPdfModal('Assets/Documents/Introduction to AI.pdf', 'Introduction to AI Certificate');
 }
 
 function openTestimonialModal() {
-    const modal = document.getElementById('pdfModal');
-    const viewer = document.getElementById('pdfViewer');
-    viewer.setAttribute('data', 'Assets/Documents/Testimonial STJTTID.pdf');
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    openPdfModal('Assets/Documents/Testimonial STJTTID.pdf', 'Professional Testimonial');
 }
 
 function closeModal() {
     const modal = document.getElementById('pdfModal');
     const viewer = document.getElementById('pdfViewer');
     modal.style.display = 'none';
-    viewer.setAttribute('data', '');
-    document.body.style.overflow = 'auto';
-}
-
-function openOfficeViewer(path, title) {
-    const modal = document.getElementById('officeModal');
-    const viewer = document.getElementById('officeViewer');
-    const titleElement = document.getElementById('officeViewerTitle');
-    const downloadLink = document.getElementById('officeDownloadLink');
-    const localFallback = document.getElementById('officeLocalFallback');
-    const localDownloadLink = document.getElementById('officeLocalDownloadLink');
-    const documentUrl = new URL(path, window.location.href).href;
-    const viewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(documentUrl)}`;
-
-    titleElement.textContent = title;
-    downloadLink.href = path;
-    localDownloadLink.href = path;
-    const isLocal = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
-    viewer.hidden = isLocal;
-    localFallback.hidden = !isLocal;
-    viewer.src = isLocal ? 'about:blank' : viewerUrl;
-    modal.style.display = 'block';
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeOfficeViewer() {
-    const modal = document.getElementById('officeModal');
-    const viewer = document.getElementById('officeViewer');
-    const localFallback = document.getElementById('officeLocalFallback');
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
     viewer.src = 'about:blank';
-    viewer.hidden = false;
-    localFallback.hidden = true;
     document.body.style.overflow = 'auto';
 }
 
@@ -299,17 +274,12 @@ window.onclick = function(event) {
     if (event.target === modal) {
         closeModal();
     }
-    const officeModal = document.getElementById('officeModal');
-    if (event.target === officeModal) {
-        closeOfficeViewer();
-    }
 }
 
 // Close modal on Escape key
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeModal();
-        closeOfficeViewer();
     }
 });
 
