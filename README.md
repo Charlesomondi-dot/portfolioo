@@ -58,7 +58,7 @@ Portfolio/
 
 ### Update Contact Information
 In `index.html`, find and update:
-- Email: Change `charlesomondi.work@gmail.com` to your email
+- Email: harns.expertsolutions@gmail.com
 - WhatsApp: Change `https://wa.me/254719501832` to your WhatsApp number
   - Format: `https://wa.me/[country_code][phone_number]` (no + or spaces)
 
@@ -139,7 +139,7 @@ Replace `Assets/Images/pic.png` with your preferred image, or change the src in 
 
 ## 📧 Contact & Support
 
-- **Email**: charlesomondi.work@gmail.com
+- **Email**: harns.expertsolutions@gmail.com
 - **WhatsApp**: Available in portfolio
 - **Social Media**: Links in footer
 
