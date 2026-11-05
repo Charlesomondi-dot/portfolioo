@@ -5,7 +5,7 @@
       "title": "Full Stack Developer | Software Engineer | Tech Enthusiast",
       "bio": "Building innovative solutions for the modern web. Specializing in creating scalable, user-centric applications.",
       "email": "charlesomondi.work@gmail.com",
-      "whatsapp": "+254711111111",
+      "whatsapp": "+254719501832",
       "profileImage": "Assets/Images/pic.png"
     },
     "projects": [
@@ -41,14 +41,20 @@
       "facebook": "https://www.facebook.com/people/Charles-Omondi/pfbid0JYDrBxLFcsEq1J5kv8fGyRbdSH1qYUsJFURuzEZg79a3rgAn9vBB3ntvA2GiCuP1l/"
     },
     "documents": {
-      "cv": "Assets/Documents/CHARLES OMONDI cv.pdf",
-      "testimonial": "Assets/Documents/Testimonial STJTTID.pdf"
+      "cv": "Assets/Documents/Charles_CV.pdf",
+      "testimonial": "Assets/Documents/Testimonial STJTTID.pdf",
+      "certificate": "Assets/Documents/Introduction to AI.pdf",
+      "companyProfile": "Assets/HarnS/Harns Company Profile (Updated).docx",
+      "companyDeck": "Assets/HarnS/Harns Corporate Presentation Deck.pptx",
+      "companyLogo": "Assets/HarnS/company logo.jpeg",
+      "businessCardFront": "Assets/HarnS/business card front.jpeg",
+      "businessCardBack": "Assets/HarnS/business card back.jpeg"
     },
     "siteSettings": {
       "theme": "light",
-      "primaryColor": "#667eea",
-      "secondaryColor": "#764ba2",
-      "accentColor": "#f093fb"
+      "primaryColor": "#07578d",
+      "secondaryColor": "#0b8fc4",
+      "accentColor": "#f2b84b"
     }
   }
 }

@@ -12,8 +12,12 @@ Portfolio/
 ├── README.md           # This file
 └── Assets/
     ├── Documents/
-    │   ├── CHARLES OMONDI cv.pdf
+    │   ├── Charles_CV.pdf
+    │   ├── Introduction to AI.pdf
     │   └── Testimonial STJTTID.pdf
+    ├── HarnS/
+    │   ├── Harns Company Profile (Updated).docx
+    │   └── Harns Corporate Presentation Deck.pptx
     └── Images/
         ├── pic.png
         ├── pic2.jpg
@@ -27,7 +31,8 @@ Portfolio/
 - **Modern Design**: Clean, professional layout optimized for top-tier companies
 - **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
 - **Project Showcase**: Display your built projects with direct links
-- **CV & Testimonials**: Embedded PDF viewers for CV and testimonials (view-only)
+- **CV, Certificate & Testimonials**: Embedded PDF viewers for the updated CV, AI certificate, and testimonial
+- **HarnS Company Profile**: Dedicated company overview with downloadable profile and presentation deck
 - **Social Media Integration**: Direct links to all your social profiles
 - **Contact Section**: Email and WhatsApp contact options
 - **Smooth Animations**: Scroll animations and interactive elements
@@ -79,9 +84,9 @@ Add new project cards in the Projects section:
 Edit CSS variables in `styles.css`:
 ```css
 :root {
-    --primary-color: #667eea;      /* Main color */
-    --secondary-color: #764ba2;    /* Secondary color */
-    --accent-color: #f093fb;       /* Accent color */
+    --primary-color: #07578d;      /* HarnS technology blue */
+    --secondary-color: #0b8fc4;    /* Action cyan */
+    --accent-color: #f2b84b;       /* Premium gold accent */
     /* ... other variables ... */
 }
 ```
@@ -145,5 +150,5 @@ Feel free to adapt and customize as needed.
 
 ---
 
-**Last Updated**: January 2025
-**Version**: 1.0
+**Last Updated**: October 2026
+**Version**: 2.0

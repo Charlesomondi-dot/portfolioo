@@ -9,29 +9,29 @@
 }
 
 :root {
-    /* Primary Colors - KCB Green Theme */
-    --primary-color: #006838;        /* KCB Dark Green */
-    --secondary-color: #00a859;      /* KCB Bright Green */
-    --accent-color: #7dc242;         /* KCB Light Green */
+    /* HarnS conversion palette: trusted navy, branded blue, energetic action cyan */
+    --primary-color: #07578d;        /* HarnS technology blue */
+    --secondary-color: #0b8fc4;      /* Action cyan */
+    --accent-color: #f2b84b;         /* Premium gold accent */
     
     /* Complementary Colors */
-    --olive: #4a7c59;                /* Olive Green */
-    --navy: #004d29;                 /* Deep Green */
-    --silver: #c0c0c0;               /* Silver */
-    --teal: #00b388;                 /* Teal Green */
-    --apple: #8bc34a;                /* Apple Green */
-    --light-grey: #e8f5e9;           /* Light Green Grey */
+    --olive: #1b6f91;
+    --navy: #062b49;                 /* Trust navy */
+    --silver: #a7b7c8;
+    --teal: #18b6c9;
+    --apple: #f2b84b;
+    --light-grey: #eaf3f9;
     
     /* Text & Background */
-    --text-dark: #1b3a2f;            /* Dark green text */
-    --text-light: #4a6b5a;           /* Light green text */
-    --bg-light: #e8f5e9;             /* Light green background */
-    --bg-white: #f1f8f4;             /* Off-white with green tint */
-    --border-color: #a5d6a7;         /* Soft green border */
+    --text-dark: #102a43;
+    --text-light: #486581;
+    --bg-light: #edf5fa;
+    --bg-white: #ffffff;
+    --border-color: #c7d9e8;
     
     /* Shadows */
-    --shadow: 0 10px 40px rgba(0, 104, 56, 0.15);
-    --shadow-sm: 0 4px 12px rgba(0, 104, 56, 0.1);
+    --shadow: 0 16px 42px rgba(6, 43, 73, 0.16);
+    --shadow-sm: 0 5px 16px rgba(6, 43, 73, 0.1);
 }
 
 html {
@@ -72,6 +72,21 @@ body {
     align-items: center;
 }
 
+.brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-lockup img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -79,6 +94,15 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.logo-subtitle {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    -webkit-text-fill-color: var(--text-light);
 }
 
 .nav-menu {
@@ -199,7 +223,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background: linear-gradient(135deg, #f3f9fd 0%, #dceef8 100%);
     padding: 100px 20px;
 }
 
@@ -249,6 +273,187 @@ body {
     max-width: 400px;
     border-radius: 20px;
     box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+/* ========================================
+   HARN S COMPANY SECTION
+   ======================================== */
+
+.company-section {
+    padding: 90px 20px;
+    background: linear-gradient(135deg, #062b49 0%, #07578d 100%);
+    color: white;
+}
+
+.company-heading {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #a7e8c5;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.company-heading h2 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+}
+
+.company-heading .section-subtitle {
+    color: #d6f5e4;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 45px;
+    align-items: stretch;
+}
+
+.company-story,
+.company-facts {
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.08);
+}
+
+.company-story h3 {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+}
+
+.company-story p {
+    color: #d6f5e4;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.company-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.company-section .btn-outline {
+    color: white;
+    border-color: #b7efd0;
+}
+
+.company-section .btn-outline:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+.fact {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.fact:last-child {
+    border-bottom: 0;
+}
+
+.fact i {
+    width: 28px;
+    color: #a7e8c5;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.fact strong,
+.fact span {
+    display: block;
+}
+
+.fact span {
+    color: #d6f5e4;
+    font-size: 0.92rem;
+}
+
+.company-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.company-pillars > div {
+    padding: 25px;
+    border-radius: 14px;
+    background: white;
+    color: var(--text-dark);
+}
+
+.company-pillars i {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.company-pillars h3 {
+    margin-bottom: 8px;
+}
+
+.company-pillars p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.brand-showcase {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 30px;
+    align-items: center;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 16px;
+    background: #07578d;
+    box-shadow: 0 18px 40px rgba(0, 27, 67, 0.25);
+}
+
+.brand-showcase h3 {
+    font-size: 1.7rem;
+    margin: 8px 0 12px;
+}
+
+.brand-showcase p {
+    color: #d9efff;
+    line-height: 1.7;
+}
+
+.business-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.business-cards a {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.business-cards a:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.business-cards img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 0.63;
     object-fit: cover;
 }
 
@@ -424,7 +629,7 @@ body {
 
 .tag {
     display: inline-block;
-    background: #f0f4ff;
+    background: #eaf4fb;
     color: var(--primary-color);
     padding: 5px 12px;
     border-radius: 20px;
@@ -604,7 +809,7 @@ body {
 }
 
 .contact-card .btn:hover {
-    background: #f0f4ff;
+    background: #eaf4fb;
 }
 
 .social-links {
@@ -1388,6 +1593,25 @@ body {
 }
 
 @media (max-width: 768px) {
+    .logo-subtitle {
+        display: none;
+    }
+
+    .company-grid,
+    .company-pillars,
+    .brand-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .business-cards {
+        max-width: 460px;
+        margin: 0 auto;
+    }
+
+    .company-heading h2 {
+        font-size: 2rem;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 20px;

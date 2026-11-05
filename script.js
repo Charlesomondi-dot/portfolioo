@@ -7,26 +7,28 @@ const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
 // Toggle mobile menu
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
-
-// Close menu when a link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
-});
 
-// Reset menu on window resize
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-    }
-});
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
+    // Reset menu on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+}
 
 // ========================================
 // SMOOTH SCROLL BEHAVIOR
@@ -74,7 +76,7 @@ document.querySelectorAll('.project-card, .skill-category, .contact-card, .about
 // STATS COUNTER ANIMATION
 // ========================================
 
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, suffix = '', duration = 2000) {
     const start = 0;
     const increment = target / (duration / 16); // 60fps
     let current = start;
@@ -82,10 +84,10 @@ function animateCounter(element, target, duration = 2000) {
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = formatNumber(target);
+            element.textContent = `${formatNumber(target)}${suffix}`;
             clearInterval(timer);
         } else {
-            element.textContent = formatNumber(Math.floor(current));
+            element.textContent = `${formatNumber(Math.floor(current))}${suffix}`;
         }
     }, 16);
 }
@@ -103,15 +105,16 @@ const statsObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const counters = entry.target.querySelectorAll('.stat-number');
             counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                animateCounter(counter, target);
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                const suffix = counter.textContent.trim().replace(/[\d.,\s]/g, '');
+                animateCounter(counter, target, suffix);
             });
             statsObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.5 });
 
-const statsSection = document.querySelector('.stats-section');
+const statsSection = document.querySelector('.stats');
 if (statsSection) {
     statsObserver.observe(statsSection);
 }
@@ -220,7 +223,15 @@ if ('IntersectionObserver' in window) {
 function openCVModal() {
     const modal = document.getElementById('pdfModal');
     const viewer = document.getElementById('pdfViewer');
-    viewer.setAttribute('data', 'Assets/Documents/CHARLES OMONDI cv.pdf');
+    viewer.setAttribute('data', 'Assets/Documents/Charles_CV.pdf');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function openCertificateModal() {
+    const modal = document.getElementById('pdfModal');
+    const viewer = document.getElementById('pdfViewer');
+    viewer.setAttribute('data', 'Assets/Documents/Introduction to AI.pdf');
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
