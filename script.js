@@ -238,12 +238,9 @@ function openPdfModal(path, title) {
     titleElement.textContent = title;
     downloadLink.href = path;
     fallbackDownloadLink.href = path;
-    const isLocal = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
-    fallback.hidden = !isLocal;
-    viewer.hidden = isLocal;
-    viewer.src = isLocal
-        ? 'about:blank'
-        : `https://docs.google.com/gview?embedded=1&url=${encodeURIComponent(new URL(path, window.location.href).href)}`;
+    fallback.hidden = true;
+    viewer.hidden = false;
+    viewer.src = path;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -254,6 +251,10 @@ function openCVModal() {
 
 function openCertificateModal() {
     openPdfModal('Assets/Documents/Introduction to AI.pdf', 'Introduction to AI Certificate');
+}
+
+function openPseaCertificateModal() {
+    openPdfModal('Assets/Documents/PSEA Certificate.pdf', 'PSEA Certificate');
 }
 
 function openTestimonialModal() {

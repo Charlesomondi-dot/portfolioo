@@ -14,6 +14,7 @@ Portfolio/
     ├── Documents/
     │   ├── Charles_CV.pdf
     │   ├── Introduction to AI.pdf
+    │   ├── PSEA Certificate.pdf
     │   └── Testimonial STJTTID.pdf
     ├── HarnS/
     │   ├── Harns Company Profile (Updated).docx
@@ -31,7 +32,7 @@ Portfolio/
 - **Modern Design**: Clean, professional layout optimized for top-tier companies
 - **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
 - **Project Showcase**: Display your built projects with direct links
-- **CV, Certificate & Testimonials**: Embedded PDF viewers for the updated CV, AI certificate, and testimonial
+- **CV, Certificates & Testimonials**: Embedded PDF viewers for the updated CV, AI certificate, PSEA certificate, and testimonial
 - **HarnS Company Profile**: Dedicated company overview with downloadable profile and presentation deck
 - **Social Media Integration**: Direct links to all your social profiles
 - **Contact Section**: Email and WhatsApp contact options
